@@ -11,6 +11,8 @@ package-lock.json
 
 # production
 /build
+/.firebase
+.firebaserc
 
 # misc
 .DS_Store
@@ -25,3 +27,4 @@ yarn-error.log*
 
 # edit
 /.vscode
+.firebaserc
