@@ -23,7 +23,6 @@ const Navigation = ({ chars, toggleNav, toggleHandler }) => (
 			</Flex>
 		</NavFlex>
 		<Backdrop
-			display={toggleNav}
 			onClick={toggleHandler}
 			className={toggleNav ? 'active-nav' : ''}
 		/>

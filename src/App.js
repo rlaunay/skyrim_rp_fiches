@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
 
 import Layout from './containers/Layout/Layout';
+import RouterOutlet from './router/RouterOutlet';
 import { AuthProvider } from './contexts/authContext';
 import { CharactersProvider } from './contexts/charactersContext';
 
@@ -20,7 +21,7 @@ const App = () => {
 				<ThemeProvider theme={theme}>
 					<BrowserRouter>
 						<Layout>
-							<h1>Salut</h1>
+							<RouterOutlet />
 						</Layout>
 					</BrowserRouter>
 				</ThemeProvider>
