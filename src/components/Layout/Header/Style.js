@@ -9,3 +9,7 @@ export const FlexHeader = styled(Flex)`
 		margin: 0 10px;
 	}
 `;
+
+export const HeadTitle = styled.h1`
+	margin-right: auto;
+`;

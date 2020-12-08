@@ -1,8 +1,8 @@
-import { LOGIN, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from './actions';
+import { LOADING, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from './actions';
 
 export const authReducer = (state, action) => {
 	switch (action.type) {
-		case LOGIN:
+		case LOADING:
 			return { ...state, isLoading: true };
 		case LOGIN_SUCCESS:
 			return {
@@ -17,7 +17,7 @@ export const authReducer = (state, action) => {
 			};
 		case LOGOUT:
 			return {
-				...state,
+				isLoading: false,
 				isLoggedIn: false,
 				user: null,
 			};

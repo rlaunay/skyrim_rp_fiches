@@ -3,7 +3,7 @@ import { authReducer } from './reducer';
 
 const initialState = {
 	isLoggedIn: false,
-	isLoading: false,
+	isLoading: true,
 	user: null,
 };
 

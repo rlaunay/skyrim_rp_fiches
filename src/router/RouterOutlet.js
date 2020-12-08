@@ -1,31 +1,40 @@
 import { Route, Switch } from 'react-router-dom';
 import { useAuth } from '../contexts/authContext';
+import GuardRoute from './GuardRoute';
 
 import Home from './../components/Home/Home';
 import Character from './../containers/Character/Character';
 import Auth from '../containers/Auth/Auth';
+import NewCharacter from '../containers/NewCharacter/NewCharacter';
+import EditCharacter from '../containers/Character/Edit/Edit';
+import Error404 from '../components/Error/Error404';
 
 const RouterOutlet = () => {
 	const auth = useAuth();
 
 	return (
 		<Switch>
-			{auth.state.isLoggedIn ? (
-				<>
-					<Route exact path="/edit/:id([0-9]+)">
-						route priver
-					</Route>
-					<Route exact path="/create">
-						priver
-					</Route>
-				</>
-			) : null}
-			<Route exact path="/admin" component={Auth} />
+			<GuardRoute
+				guard={auth.state.isLoggedIn}
+				exact
+				path="/edit/:id([0-9]+)"
+				component={EditCharacter}
+			/>
+			<GuardRoute
+				guard={auth.state.isLoggedIn}
+				exact
+				path="/create"
+				component={NewCharacter}
+			/>
+			<GuardRoute
+				guard={!auth.state.isLoggedIn}
+				exact
+				path="/admin"
+				component={Auth}
+			/>
 			<Route exact path="/:id([0-9]+)" component={Character} />
 			<Route exact path="/" component={Home} />
-			<Route path="*">
-				<h1>coné pa</h1>
-			</Route>
+			<Route path="*" component={Error404} />
 		</Switch>
 	);
 };

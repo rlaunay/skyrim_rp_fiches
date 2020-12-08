@@ -4,9 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
+import { AuthProvider } from './contexts/authContext';
+import { CharactersProvider } from './contexts/charactersContext';
+
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<CharactersProvider>
+			<AuthProvider>
+				<App />
+			</AuthProvider>
+		</CharactersProvider>
 	</React.StrictMode>,
 	document.getElementById('root')
 );

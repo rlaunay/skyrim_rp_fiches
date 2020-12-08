@@ -4,4 +4,6 @@ export const theme = {
 	colorGreyLight: '#787878',
 	colorGreyDark: '#606060',
 	colorDark: '#181818',
+	colorWhite: '#fff',
+	colorError: '#F44336',
 };

@@ -16,7 +16,7 @@ export const IconBtn = styled.button`
 	transition: filter 300ms;
 
 	&:hover {
-		filter: brightness(1.2);
+		filter: brightness(1.5);
 	}
 
 	& svg {

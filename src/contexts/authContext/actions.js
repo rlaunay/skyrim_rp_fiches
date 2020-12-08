@@ -1,6 +1,6 @@
-export const LOGIN = 'LOGIN';
-export const login = () => ({
-	type: LOGIN,
+export const LOADING = 'LOADING';
+export const loading = () => ({
+	type: LOADING,
 });
 
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';

@@ -9,4 +9,6 @@ export const Flex = styled.div`
 	align-items: ${({ alignItems = 'initial' }) => alignItems};
 	background-color: ${({ bgColor, theme }) => theme[bgColor] || 'initial'};
 	color: ${({ color, theme }) => theme[color] || 'initial'};
+	margin: ${({ margin }) => margin || 0};
+	padding: ${({ padding }) => padding || 0};
 `;
