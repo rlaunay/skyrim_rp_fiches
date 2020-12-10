@@ -35,15 +35,15 @@ const App = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<BrowserRouter>
-				{auth.state.isLoading ? (
-					<Backdrop>
-						<Loader />
-					</Backdrop>
-				) : (
-					<Layout>
+				<Layout>
+					{auth.state.isLoading ? (
+						<Backdrop>
+							<Loader />
+						</Backdrop>
+					) : (
 						<RouterOutlet />
-					</Layout>
-				)}
+					)}
+				</Layout>
 			</BrowserRouter>
 		</ThemeProvider>
 	);

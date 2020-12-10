@@ -24,6 +24,12 @@ const Layout = ({ children }) => {
 		setToggleNav((prevState) => !prevState);
 	};
 
+	const linkCloseNavHandler = () => {
+		if (window.innerWidth <= 1000) {
+			setToggleNav((prevState) => !prevState);
+		}
+	};
+
 	const navigationHandler = () => {
 		history.push('/create');
 	};
@@ -52,6 +58,7 @@ const Layout = ({ children }) => {
 					chars={chars}
 					toggleNav={toggleNav}
 					toggleHandler={toggleHandler}
+					linkToggle={linkCloseNavHandler}
 				/>
 				<Main
 					as="main"

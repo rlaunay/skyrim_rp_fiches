@@ -21,7 +21,7 @@ export const SubmitBtn = styled.input.attrs({
 	);
 	background-size: 220%;
 
-	transition: 0.3s;
+	transition: 0.2s;
 
 	&:hover {
 		background-position: 100%;

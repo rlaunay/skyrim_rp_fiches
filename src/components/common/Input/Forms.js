@@ -20,6 +20,12 @@ export const Input = styled.input`
 	&:focus ~ svg {
 		color: ${({ theme }) => theme.colorPrimary};
 	}
+
+	@media (max-width: 600px) {
+		font-size: 16px;
+		padding: 5px;
+		padding-left: 35px;
+	}
 `;
 
 export const Label = styled.label`
@@ -40,6 +46,11 @@ export const InputIcon = styled(Flex)`
 		width: 20px;
 		color: ${({ theme }) => theme.colorDark};
 		transition: 0.3s;
+
+		@media (max-width: 600px) {
+			height: 18px;
+			width: 18px;
+		}
 	}
 
 	&[data-error]:after {

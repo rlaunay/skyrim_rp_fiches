@@ -24,7 +24,7 @@ export default styled(NavLink).attrs({ activeClassName })`
 	);
 	background-size: 220%;
 
-	transition: 0.5s;
+	transition: 0.25s;
 
 	&.${activeClassName}, &:hover {
 		background-position: 100%;

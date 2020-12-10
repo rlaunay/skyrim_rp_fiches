@@ -10,6 +10,7 @@ import {
 	loading,
 	loginFail,
 	loginSucess,
+	logout,
 } from '../../contexts/authContext/actions';
 import { useAuth } from '../../contexts/authContext';
 
@@ -18,6 +19,7 @@ import { ReactComponent as PasswordIcon } from './../../static/icon/lock-solid.s
 import { useState } from 'react';
 import { isEmail, isNotEmpty } from '../../utils/form/formCheck';
 import { useHistory } from 'react-router-dom';
+import { Form } from '../../components/common/Wrapper/Form';
 
 const Auth = () => {
 	const auth = useAuth();
@@ -26,7 +28,6 @@ const Auth = () => {
 		email: { value: '', error: null },
 		password: { value: '', error: null },
 	});
-	const [notFound, setNotFound] = useState(false);
 
 	const loginHandler = async (mail, pwd) => {
 		auth.dispatch(loading());
@@ -41,16 +42,13 @@ const Auth = () => {
 			} else {
 				auth.dispatch(loginFail());
 				firebase.auth().signOut();
-				setNotFound(true);
 			}
 		} catch (error) {
 			auth.dispatch(loginFail());
 			if (
-				error.code === 'auth/user-not-found' ||
-				error.code === 'auth/wrong-password'
+				error.code !== 'auth/user-not-found' ||
+				error.code !== 'auth/wrong-password'
 			) {
-				setNotFound(true);
-			} else {
 				console.log(error.message);
 			}
 		}
@@ -58,7 +56,7 @@ const Auth = () => {
 
 	const submitHandler = (event) => {
 		event.preventDefault();
-		setNotFound(false);
+		auth.dispatch(logout());
 		const email = formData.email.value;
 		const password = formData.password.value;
 
@@ -105,15 +103,15 @@ const Auth = () => {
 			height="100%"
 			width="100%"
 		>
-			<form onSubmit={submitHandler}>
-				<LoginCont
-					column
-					width="500px"
-					alignItems="center"
-					bgColor="colorWhite"
-				>
+			<LoginCont
+				column
+				width="500px"
+				alignItems="center"
+				bgColor="colorWhite"
+			>
+				<Form onSubmit={submitHandler}>
 					<LoginTitle primary>Skyrim administration</LoginTitle>
-					{notFound ? (
+					{auth.state.notFound ? (
 						<Error>Identifiant ou mot de passe incorect !</Error>
 					) : null}
 					<LogInput
@@ -133,8 +131,8 @@ const Auth = () => {
 						error={formData.password.error}
 					/>
 					<SubmitBtn value="Connexion" />
-				</LoginCont>
-			</form>
+				</Form>
+			</LoginCont>
 		</Flex>
 	);
 };

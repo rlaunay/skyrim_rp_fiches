@@ -2,7 +2,7 @@ import { NavFlex, Backdrop } from './Styles';
 import StyledNavLink from './../../common/Link/StyledNavLink';
 import { Flex } from '../../common/Wrapper/Flex';
 
-const Navigation = ({ chars, toggleNav, toggleHandler }) => (
+const Navigation = ({ chars, toggleNav, toggleHandler, linkToggle }) => (
 	<>
 		<NavFlex
 			as="nav"
@@ -18,6 +18,7 @@ const Navigation = ({ chars, toggleNav, toggleHandler }) => (
 					<StyledNavLink
 						key={char.id}
 						to={`/${char.id}`}
+						onClick={linkToggle}
 					>{`${char.prenom} ${char.nom}`}</StyledNavLink>
 				))}
 			</Flex>

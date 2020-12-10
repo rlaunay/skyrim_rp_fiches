@@ -14,6 +14,10 @@ export const LoginTitle = styled(Title)`
 export const LoginCont = styled(Flex)`
 	overflow: hidden;
 	border-radius: 10px;
+
+	@media (max-width: 600px) {
+		width: 100%;
+	}
 `;
 
 export const Error = styled.p`

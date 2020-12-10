@@ -29,7 +29,7 @@ export const NavFlex = styled(Flex).attrs({ activeNav })`
 	}
 
 	width: 0px;
-	transition: 0.2s;
+	transition: 0.3s;
 
 	&.${activeNav} {
 		visibility: visible;
